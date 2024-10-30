@@ -1,0 +1,96 @@
+<script>
+    // Set a flag when the form is submitted
+    function setFormSubmitted() {
+        sessionStorage.setItem('formSubmitted', 'true');
+    }
+
+    // Check the flag and prevent resubmission
+    window.onload = function () {
+        var formSubmitted = sessionStorage.getItem('formSubmitted');
+        if (formSubmitted) {
+            // Clear the flag to allow future submissions
+            sessionStorage.removeItem('formSubmitted');
+
+            // Use location.replace to replace the current entry in the browser's session history
+            window.location.replace(window.location.href);
+        }
+    }
+</script>
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add New Patient</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        
+        title {
+            font-family: 'Arial', sans-serif;
+            color: #333;
+        }
+
+        form {
+            width: 300px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #555;
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 16px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        input[type="submit"] {
+            background-color: #d8bfd8;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color:blue;
+        }
+    </style>
+</head>
+<body>
+    <h1>Add New Patient</h1>
+    <form name="addPatient" method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
+
+        <label for="patient_name">Patient Name:</label>
+        <input type="text" placeholder="Patient Name" name="patient_name" required>
+
+        <label for="dob">Date of Birth:</label>
+        <input type="date" name="dob" required>
+
+        <label for="medical_card_number">Medical Card Number:</label>
+        <input type="text" placeholder="Medical Card Number" name="medical_card_number" required>
+
+        <br /><br />
+
+        <input type="submit" value="Submit" name="addPatientButton">
+    </form>
+</body>
+</html>

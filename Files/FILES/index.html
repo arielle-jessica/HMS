@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+        }
+
+        #page {
+            width: 300px;
+            margin: 50px auto;
+        }
+
+        #content {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        form {
+            margin-top: 20px;
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 16px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        select {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 16px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        input[type="submit"] {
+            background-color: #d8bfd8;
+            color: #fff;
+            cursor: pointer;
+            border: none;
+            border-radius: 4px;
+            padding: 10px;
+        }
+
+        input[type="submit"]:hover {
+            background-color: blue;
+        }
+    </style>
+</head>
+<body>
+    <div id="page">
+        <div id="content">
+            <h1>IBAJ</h1>
+            <p>Authenticate yourself :)</p>
+
+            <form name="login" action="http://localhost/CP3520/php/login.php" method="post">
+                <input type="text" placeholder="Username" name="username">
+                <input type="password" placeholder="Password" name="password">
+                <input type="submit" value="Login" name="login">
+
+                <p>Or</p>
+                <select name="role">
+                    <option value="patient">Patient</option>
+                    <option value="doctor">Doctor</option>
+                    <option value="pharmacy">Pharmacy</option>
+                </select>
+
+                <input type="submit" value="Sign Up" name="signup">
+            </form>
+        </div>
+    </div>
+</body>
+</html>
+
